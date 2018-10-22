@@ -13,7 +13,7 @@ This project can be built using Rust's `cargo` build tool. You'll also need SDL2
 ### Ubuntu
 
 ```sh
-apt install libsdl-dev
+apt install libsdl2-dev
 cargo build --release
 ```
 
@@ -30,7 +30,9 @@ After building, the executable will live at `target/release/playloop`.
 
 ### Windows
 
-On Windows, building with SDL takes a little more effort. See the [rust-sdl2](https://github.com/Rust-SDL2/rust-sdl2) setup docs.
+On Windows, building takes a little more effort. As a convenience, you can find a build for Windows [in the releases area](https://github.com/jkarneges/playloop/releases).
+
+To build from source, see the [rust-sdl2](https://github.com/Rust-SDL2/rust-sdl2) setup docs.
 
 ## Usage
 

@@ -19,7 +19,7 @@ cargo build --release
 
 After building, the executable will live at `target/release/playloop`.
 
-### Mac:
+### Mac
 
 ```sh
 brew install sdl2

@@ -23,7 +23,7 @@ After building, the executable will live at `target/release/playloop`.
 
 ```sh
 brew install sdl2
-cargo build
+cargo build --release
 ```
 
 After building, the executable will live at `target/release/playloop`.

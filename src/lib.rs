@@ -1,6 +1,3 @@
-extern crate lewton;
-extern crate sdl2;
-
 use std::cmp;
 use std::mem;
 use std::ptr;
@@ -46,7 +43,7 @@ struct Player<T: Read + Seek> {
 }
 
 impl<T: Read + Seek> Player<T> {
-	pub fn new(rdr: T) -> Result<Player<T>, Box<Error>> {
+	pub fn new(rdr: T) -> Result<Player<T>, Box<dyn Error>> {
 		let reader = OggStreamReader::new(rdr)?;
 
 		let mut loop_start = None;
@@ -80,7 +77,7 @@ impl<T: Read + Seek> Player<T> {
 		})
 	}
 
-	pub fn read(&mut self, out: &mut [i16]) -> Result<usize, Box<Error>> {
+	pub fn read(&mut self, out: &mut [i16]) -> Result<usize, Box<dyn Error>> {
 		let num_channels = self.num_channels as usize;
 
 		assert!(out.len() >= num_channels,
@@ -370,7 +367,7 @@ impl AudioCallback for Producer {
 	}
 }
 
-pub fn run(file_name: &str) -> Result<(), Box<Error>> {
+pub fn run(file_name: &str) -> Result<(), Box<dyn Error>> {
 	let f = File::open(file_name)?;
 
 	let player = Player::new(f)?;
